@@ -6,7 +6,7 @@ const CURRENT_TIME_KEY = 'videoplayer-current-time';
 const savedCurrentTime = localStorage.getItem(CURRENT_TIME_KEY);
 
 const onCurrentTimePlay = function (data) {
-  console.log(data.seconds);
+  // console.log(data.seconds);
   const currentTimeValue = data.seconds;
   localStorage.setItem(CURRENT_TIME_KEY, currentTimeValue);
 };
