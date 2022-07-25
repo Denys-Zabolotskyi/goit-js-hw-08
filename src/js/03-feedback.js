@@ -22,6 +22,10 @@ function getInputValues(evt) {
 }
 function onFormSubmit(evt) {
   evt.preventDefault();
+  console.log(evt.target.email.value);
+  if (evt.target.email.value === '' || evt.target.message.value === '') {
+    alert('You must fill in all  of fields!');
+  }
   evt.target.reset();
   localStorage.removeItem(STORAGE_KEY);
 }
