@@ -6,12 +6,14 @@ const refs = {
   emailEl: document.querySelector('input'),
 };
 //*******************Create object data********************************* */
-const formData = {};
 const STORAGE_KEY = 'feedback-form-state';
+const formData = localStorage.getItem(STORAGE_KEY)
+  ? JSON.parse(localStorage.getItem(STORAGE_KEY))
+  : {};
+
 getlocalStorageData();
 //*******************Add listeners********************************* */
 refs.emailEl.addEventListener('input', throttle(getInputValues, 500));
-
 refs.messageEl.addEventListener('input', throttle(getInputValues, 500));
 refs.formEl.addEventListener('submit', onFormSubmit);
 //*******************Get input values and added to formData ********************************* */
@@ -20,6 +22,7 @@ function getInputValues(evt) {
   // console.log(evt);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
+
 function onFormSubmit(evt) {
   evt.preventDefault();
   console.log(evt.target.email.value);
