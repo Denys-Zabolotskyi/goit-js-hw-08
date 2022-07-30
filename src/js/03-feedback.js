@@ -19,16 +19,15 @@ refs.formEl.addEventListener('submit', onFormSubmit);
 //*******************Get input values and added to formData ********************************* */
 function getInputValues(evt) {
   formData[evt.target.name] = evt.target.value;
-  // console.log(evt);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
 function onFormSubmit(evt) {
   evt.preventDefault();
-  console.log(evt.target.email.value);
   if (evt.target.email.value === '' || evt.target.message.value === '') {
-    alert('You must fill in all  of fields!');
+    alert('You must fill in all of fields!');
   }
+
   evt.target.reset();
   localStorage.removeItem(STORAGE_KEY);
 }
@@ -36,7 +35,6 @@ function onFormSubmit(evt) {
 function getlocalStorageData(evt) {
   const savedDatalocalStorage = localStorage.getItem(STORAGE_KEY);
   const parcedSavedData = JSON.parse(savedDatalocalStorage);
-  // console.log(parcedSavedData['email']);
   if (!parcedSavedData) {
     return;
   }
