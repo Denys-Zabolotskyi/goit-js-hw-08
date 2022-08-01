@@ -24,8 +24,12 @@ function getInputValues(evt) {
 
 function onFormSubmit(evt) {
   evt.preventDefault();
-  if (evt.target.email.value === '' || evt.target.message.value === '') {
+  const email = evt.target.email.value;
+  const message = evt.target.message.value;
+  if (email === '' || message === '') {
     alert('You must fill in all of fields!');
+  } else {
+    console.log({ email, message });
   }
 
   evt.target.reset();
